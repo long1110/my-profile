@@ -1,0 +1,62 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+//@import "compass/css3";
+//@import "compass/utilities";
+
+@media (min-width: $screen-sm-min) {
+	.hero {
+		margin: 0 100px;
+		height: 250px;
+		text-align: center;
+	}
+}
+
+@media (max-width: $screen-sm-min) {
+	.hero {
+		height: 250px;
+		text-align: center;
+	}
+}
+
+.hero-title {
+	font-size: 50px;
+	font-family: 'Shadows Into Light Two', cursive;
+}
+
+.hero-description {
+	font-size: 22px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.blockList {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.blockGroup-column {
+	width: 520px;
+}
+
+.block {
+	margin-bottom: 10px;
+}
+.block-title {
+	color: rgba(0, 0, 0, 0.3);
+}
+
+.u-layoutColumn {
+	width: 640px;
+}
+
+.u-alignMiddle {
+	display: inline-block;
+}
+
+.u-alignBlock {
+	margin-top: 100px;
+}
