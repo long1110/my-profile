@@ -12,12 +12,25 @@ function onError(err) {
   console.log(err);
 }
 
-gulp.task('browserify', function() {
-  browserify({ debug: true })
+function _browserify(dest, debug) {
+  return browserify({ debug: debug })
     .add('./app/scripts/app.js')
     .bundle()
+    .on('error', function(err) {
+      // print the error (can replace with gulp-util)
+      console.log(err);
+      // end this stream
+      this.end();
+    })
     .pipe(source('app.js'))
-    .pipe(gulp.dest('.tmp/scripts'));
+    .pipe(gulp.dest(dest));
+}
+
+gulp.task('browserify:dev', function() {
+  return _browserify('.tmp/scripts', true);
+});
+gulp.task('browserify:build', function() {
+  return _browserify('dist/scripts', false);
 });
 
 gulp.task('styles', function () {
@@ -43,15 +56,11 @@ gulp.task('scripts', function () {
     .pipe($.size());
 });
 
-gulp.task('html', ['styles', 'scripts'], function () {
-  var jsFilter = $.filter('**/*.js');
+gulp.task('html', ['styles'], function () {
   var cssFilter = $.filter('**/*.css');
 
   return gulp.src('app/*.html')
     .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
-    .pipe(jsFilter)
-    .pipe($.uglify())
-    .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.csso())
     .pipe(cssFilter.restore())
@@ -81,7 +90,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('extras', function () {
-  return gulp.src(['app/*.*', '!app/*.html'], { dot: true })
+  return gulp.src(['app/*.*', 'app/**/*.html', '!app/*.html'], { dot: true })
     .pipe(gulp.dest('dist'));
 });
 
@@ -89,7 +98,7 @@ gulp.task('clean', function () {
   return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras']);
+gulp.task('build', ['html', 'browserify:build', 'images', 'fonts', 'extras']);
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
@@ -148,7 +157,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
   //gulp.watch('app/scripts/**/*.js', ['scripts']);
-  gulp.watch('app/scripts/**/*.js', ['browserify']);
+  gulp.watch('app/scripts/**/*.js', ['browserify:dev']);
   gulp.watch('app/images/**/*', ['images']);
   gulp.watch('bower.json', ['wiredep']);
 });

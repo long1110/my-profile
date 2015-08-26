@@ -1,8 +1,15 @@
 <block title="Experiences">
   <dl class="dl-horizontal" ng-repeat="experience in experiences">
-    <dt>{{experience.periodFrom.month}} {{experience.periodFrom.year}} - {{experience.periodTo.month}} {{experience.periodTo.year}}</dt>
+    <dt>
+      {{experience.periodFrom.month}} {{experience.periodFrom.year}} -
+      <span ng-if="!experience.periodTo.present">{{experience.periodTo.month}} {{experience.periodTo.year}}</span>
+      <span ng-if="experience.periodTo.present">Present</span>
+    </dt>
     <dd>
-      <span>{{experience.companyName}}</span>
+      <div class="experienceList-header">{{experience.companyName}}</div>
+      <ul class="experienceList-ul">
+        <li ng-repeat="duty in experience.duties">{{duty}}</li>
+      </ul>
     </dd>
   </dl>
 </block>

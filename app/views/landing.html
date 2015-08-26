@@ -1,7 +1,7 @@
 <div>
   <header class="hero">
     <div class="u-alignMiddle u-layoutColumn">
-      <div class="hero-title u-alignBlock">My First Profolio</div>
+      <div class="hero-title u-alignBlock">My First Profile</div>
       <div class="hero-description">HelloWorld</div>
     </div>
   </header>
@@ -21,6 +21,19 @@
     <div class="row">
       <div class="col-sm-12">
         <experience-list-block experiences="experiences"></experience-list-block>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <block title="Skills">
+          <radar labels="languageSkill.labels" data="languageSkill.data"></radar>
+          <radar labels="serverFrameworkSkill.labels" data="serverFrameworkSkill.data"></radar>
+          <radar labels="webTechnologiesSkill.labels" data="webTechnologiesSkill.data"></radar>
+          <br/>
+          <br/>
+          <tag-list title="Tools" data="toolSkills"></tag-list>
+          <tag-list title="Databases" data="databaseSkills"></tag-list>
+        </block>
       </div>
     </div>
   </div>

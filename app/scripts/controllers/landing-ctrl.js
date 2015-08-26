@@ -1,5 +1,7 @@
 'use strict';
 
+var lodash = require('lodash');
+
 var LandingCtrl = function($scope, ProfileStore, EducationStore, ExperienceStore, SkillStore, ProjectStore) {
   var self = this;
 
@@ -15,6 +17,20 @@ var LandingCtrl = function($scope, ProfileStore, EducationStore, ExperienceStore
     $scope.experiences = experiences;
     $scope.skills = skills;
     $scope.projects = projects;
+
+    $scope.languageSkill = mapSkillsToRadorData(skills.languages);
+    $scope.serverFrameworkSkill = mapSkillsToRadorData(skills.serverFrameworks);
+    $scope.webTechnologiesSkill = mapSkillsToRadorData(skills.webTechnologies);
+    $scope.toolSkills = skills.tools;
+    $scope.databaseSkills = skills.databases;
+
+  }
+
+  function mapSkillsToRadorData(skills) {
+    return {
+      labels: lodash.pluck(skills, 'name'),
+      data: lodash.pluck(skills, 'level')
+    };
   }
 
   function onChange() {

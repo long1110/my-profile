@@ -4,7 +4,8 @@
   "browser": {
     "angular": "./app/bower_components/angular/angular.js",
     "ui-router": "./app/bower_components/ui-router/release/angular-ui-router.js",
-    "jquery": "./app/bower_components/jquery/dist/jquery.js"
+    "jquery": "./app/bower_components/jquery/dist/jquery.js",
+    "chart": "./app/bower_components/Chart.js/Chart.js"
   },
   "devDependencies": {
     "browserify": "^5.10.1",

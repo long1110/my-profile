@@ -8,16 +8,18 @@ var CHANGE_EVENT = 'change';
 
 var _skills = {
   languages: [
+    { name: 'Go', level: 5 },
+    { name: 'Erlang', level: 3 },
     { name: 'Javascript', level: 5 },
     { name: 'Coffeescript', level: 4 },
     { name: 'Ruby', level: 4 },
     { name: 'C', level: 3 },
     { name: 'Shell Script', level: 3 },
     { name: 'PHP', level: 3 },
-    { name: 'Java', level: 3 }
   ],
 
   serverFrameworks: [
+    { name: 'Beego', level: 5 },
     { name: 'Ruby on Rails', level: 4 },
     { name: 'KoaJS', level: 4 },
     { name: 'ExpressJS', level: 3 },
@@ -26,13 +28,12 @@ var _skills = {
   ],
 
   webTechnologies: [
+    { name: 'React', level: 5 },
+    { name: 'React Native', level: 4 },
     { name: 'AngularJS', level: 5 },
     { name: 'BackboneJS', level: 5 },
     { name: 'jQuery', level: 5 },
-    { name: 'HTML5', level: 4 },
-    { name: 'Bootstrap', level: 4 },
     { name: 'D3', level: 3 },
-    { name: 'Polymer', level: 3 }
   ],
 
   testings: [
@@ -40,12 +41,13 @@ var _skills = {
   ],
 
   tools: [
+    'Docker',
     'Yeoman', 'Grunt', 'Gulp', 'Bower', 'RubyGem', 'Rake',
     'Git', 'SVN'
   ],
 
   databases: [
-    'MySQL', 'MongoDB', 'Memcached'
+    'Couchbase', 'MySQL', 'MongoDB', 'Memcached'
   ],
 
   api: [
