@@ -2,11 +2,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 
-@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 //@import "compass/css3";
 //@import "compass/utilities";
+
+
 
 @media (min-width: $screen-sm-min) {
 	.hero {
@@ -50,7 +52,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 }
 
 .u-layoutColumn {
-	width: 640px;
+	width: 100%;
 }
 
 .u-alignMiddle {
@@ -72,4 +74,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 .tag {
 	margin: 0 2px;
+}
+
+@media (max-width: 500px) {
+  .blockList {
+    width: 100%
+  }
 }
