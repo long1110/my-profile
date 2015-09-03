@@ -8,21 +8,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 //@import "compass/css3";
 //@import "compass/utilities";
 
-
-
-@media (min-width: $screen-sm-min) {
-	.hero {
-		margin: 0 100px;
-		height: 250px;
-		text-align: center;
-	}
-}
-
-@media (max-width: $screen-sm-min) {
-	.hero {
-		height: 250px;
-		text-align: center;
-	}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .hero-title {
@@ -76,8 +64,20 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	margin: 0 2px;
 }
 
-@media (max-width: 500px) {
+@media (min-width: $screen-sm-min) {
+	.hero {
+		margin: 0 100px;
+		height: 250px;
+		text-align: center;
+	}
+}
+
+@media (max-width: $screen-sm-min) {
+	.hero {
+		height: 250px;
+		text-align: center;
+	}
   .blockList {
-    width: 100%
+    width: 95%
   }
 }
